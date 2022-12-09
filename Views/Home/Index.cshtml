@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Location";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Input Location</h1>
+    <p>General Location found using IP Geolocation on Google Maps. Placing a marker will reveal address using Reverse Geocoding.
+        Submit will send information to local database using Entity Framework.</p>
+    <div class="map-container">
+        <div id="map"></div>
+    </div>
+    <button id="submitLoc" class="btn btn-primary">Submit</button>
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOURKEYHERE&callback=initMap&v=weekly" defer></script>
