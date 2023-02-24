@@ -5,10 +5,11 @@
 <div class="text-center">
     <h1 class="display-4">Input Location</h1>
     <p>General Location found using IP Geolocation on Google Maps. Placing a marker will reveal address using Reverse Geocoding.
-        Submit will send information to local database using Entity Framework.</p>
+        Submit will send information to Azure Cosmos database using Entity Framework Core.</p>
     <div class="map-container">
         <div id="map"></div>
     </div>
     <button id="submitLoc" class="btn btn-primary">Submit</button>
+    <p id="locOutput" class="mt-3"></p>
 </div>
-<script src="https://maps.googleapis.com/maps/api/js?key=YOURKEYHERE&callback=initMap&v=weekly" defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCV6r4I-y2sPFXlCJBT0RYuge6MdDX7RuE&callback=initMap&v=weekly" defer></script>

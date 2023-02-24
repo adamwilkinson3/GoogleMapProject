@@ -10,7 +10,7 @@ let map;
 let marker;
 let postLoc = {};
 
-fetch("https://api.geoapify.com/v1/ipinfo?&apiKey=YOURKEYHERE", requestOptions)
+fetch("https://api.geoapify.com/v1/ipinfo?&apiKey=d655216b0c454a568afacd1e0ff55cb9", requestOptions)
     .then(response => response.json())
     .then(result => window.initMap = initMap(result.location))
     .catch(error => console.log('error', error));
@@ -27,6 +27,7 @@ function initMap(loc) {
     google.maps.event.addListener(map, 'click', function (event) {
         placeMarker(event.latLng);
         geocodeLatLng(geocoder, map, infowindow, event.latLng);
+        $('#locOutput').html(`Location</br>Latitude: ${event.latLng.lat()}</br>Longitude: ${event.latLng.lng()}`);
     });
 }
 
@@ -74,9 +75,9 @@ function postLocation(postLoc) {
         },
     }
 
-    fetch('https://localhost:7087/api/map', requestPost)
+    let fdata = fetch('https://mapprojapi.azurewebsites.net/api/map', requestPost)
         .then((response) => response.json())
-        .then((data) => console.log(data));
+        .then((data) => { console.log(data); $('#locOutput').html(`Location</br>Latitude: ${data.data.latitude}</br>Longitude: ${data.data.longitude}</br>Stored in Database`); })
 }
 
 document.getElementById("submitLoc").addEventListener("click", () => postLocation(postLoc));
